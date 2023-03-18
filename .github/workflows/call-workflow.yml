@@ -151,10 +151,10 @@ jobs:
   devLabelWhenApproved:
     needs: [terraform-plan]
     uses: pullreminders/label-when-approved-action@master
-      env:
-        APPROVALS: "1"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "dev approved"
+    env:
+      APPROVALS: "1"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ADD_LABEL: "dev approved"
 
   deploy_dev:
     if: contains(github.event.pull_request.labels.*.name, 'dev approved')
@@ -171,10 +171,10 @@ jobs:
   prdLabelWhenApproved:
     needs: [deploy_dev]
     uses: pullreminders/label-when-approved-action@master
-      env:
-        APPROVALS: "1"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "prd approved"
+    env:
+      APPROVALS: "1"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ADD_LABEL: "prd approved"
   
   deploy_prod:
     if: contains(github.event.pull_request.labels.*.name, 'prd approved')
