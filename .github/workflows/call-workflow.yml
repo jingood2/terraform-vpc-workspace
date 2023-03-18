@@ -55,12 +55,6 @@ jobs:
           tfsec_formats: default,sarif,checkstyle
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      #- name: Scan IaC - tfsec
-        #if: ${{ inputs.ENABLE_TFSEC == 'true' }}
-      #  uses: aquasecurity/tfsec-sarif-action@v0.1.3
-      #  with:
-      #    sarif_file: tfsec.sarif
-
       - name: Upload SARIF file
         #if: ${{ inputs.ENABLE_TFSEC == 'true' }}
         uses: github/codeql-action/upload-sarif@v2
