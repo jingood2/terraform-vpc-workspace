@@ -75,14 +75,21 @@ jobs:
         run: |
           SAVED_TF_WORKSPACE=$TF_WORKSPACE
           unset TF_WORKSPACE
-          terraform init -input=false -backend-config="key=${{inputs.gh_environment}}}" -backend-config="backends/${{inputs.gh_environment}}.conf"
+          terraform init -input=false -backend-config="key=${{inputs.gh_environment}}}" -backend-config="environments/${{inputs.gh_environment}}.conf"
           TF_WORKSPACE=$SAVED_TF_WORKSPACE
           terraform workspace select "${TF_WORKSPACE}" || terraform workspace new "${TF_WORKSPACE}"
       
       #- name: Select Workspace
       #  id: select_workspace
       #  run: terraform workspace select ${{inputs.gh_environment}}
+      - name: Label dev when approved
+        uses: pullreminders/label-when-approved-action@master
+        env:
+          APPROVALS: "1"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADD_LABEL: "${{inputs.gh_environment}} approved"
 
       - name: Terraform Apply
+        if: contains(github.event.pull_request.labels.*.name, "${{inputs.gh_environment}} approved")
         run: |
           terraform apply plan.tfplan
