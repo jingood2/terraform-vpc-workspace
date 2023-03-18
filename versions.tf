@@ -7,13 +7,15 @@ terraform {
       version = ">= 3.73"
     }
   }
+
+  backend "s3" {}
 }
 
 provider "aws" {
   region = var.aws_region
 }
 
-backend "s3" {}
+
 
 #backend "remote" {
 #  hostname = "app.terraform.io"
