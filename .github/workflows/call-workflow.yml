@@ -169,17 +169,17 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   
-  prdLabelWhenApproved:
-    needs: [deploy_dev]
-    uses: pullreminders/label-when-approved-action@master
-    env:
-      APPROVALS: "0"
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      ADD_LABEL: "prd approved"
+  #prdLabelWhenApproved:
+  #  needs: [deploy_dev]
+  #  uses: pullreminders/label-when-approved-action@master
+  #  env:
+  #    APPROVALS: "0"
+  #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #    ADD_LABEL: "prd approved"
   
   deploy_prod:
-    if: contains(github.event.pull_request.labels.*.name, 'prd approved')
-    needs: [prdLabelWhenApproved]
+    #if: contains(github.event.pull_request.labels.*.name, 'prd approved')
+    needs: [deploy_dev]
     uses: ./.github/workflows/apply-workflow.yml
     with:
       path: tfplan
