@@ -10,7 +10,7 @@ vpc_availability_zones = ["us-east-1a", "us-east-1c"]
 vpc_public_subnets = ["10.0.0.0/24", "10.0.1.0/24"]
 vpc_public_subnets_names = ["dev-pub-1a", "dev-pub-1c"]
 vpc_private_subnets = ["10.0.10.0/24", "10.0.11.0/24", "100.64.10.0/24", "100.64.11.0/24"]
-vpc_private_subnets_names = ["dev-pri-1a", "dev-pri-1c"]
+vpc_private_subnets_names = ["dev-pri-1a", "dev-pri-1c", "dev-pod-1a", "dev-pod-1c"]
 vpc_database_subnets = ["10.0.20.0/24", "10.0.21.0/24"]
 vpc_database_subnets_names = ["dev-db-1a", "dev-db-1c"]
 
