@@ -104,7 +104,7 @@ jobs:
       run: |
         SAVED_TF_WORKSPACE=$TF_WORKSPACE
         unset TF_WORKSPACE
-        terraform init -input=false -backend-config="key=${{matrix['path']}}" -backend-config="backends/${{matrix.path}}.conf"
+        terraform init -input=false -backend-config="key=${{matrix['path']}}" -backend-config="environments/${{matrix.path}}.conf"
         TF_WORKSPACE=$SAVED_TF_WORKSPACE
         terraform workspace select "${TF_WORKSPACE}" || terraform workspace new "${TF_WORKSPACE}"
 
