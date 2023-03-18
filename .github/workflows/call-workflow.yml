@@ -153,7 +153,7 @@ jobs:
     - name: Label dev when approved
       uses: pullreminders/label-when-approved-action@master
       env:
-        APPROVALS: "1"
+        APPROVALS: "0"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ADD_LABEL: "dev approved"
 
