@@ -79,12 +79,12 @@ jobs:
           TF_WORKSPACE=$SAVED_TF_WORKSPACE
           terraform workspace select "${TF_WORKSPACE}" || terraform workspace new "${TF_WORKSPACE}"
       
-      - name: Label dev when approved
-        uses: pullreminders/label-when-approved-action@master
-        env:
-          APPROVALS: "0"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ADD_LABEL: "${{inputs.gh_environment}} approved"
+      #- name: Label dev when approved
+      #  uses: pullreminders/label-when-approved-action@master
+      #  env:
+      #    APPROVALS: "0"
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #    ADD_LABEL: "${{inputs.gh_environment}} approved"
 
       - name: Terraform Apply
         if: contains(github.event.pull_request.labels.*.name, "${{inputs.gh_environment}} approved")
