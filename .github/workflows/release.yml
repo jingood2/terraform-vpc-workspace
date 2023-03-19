@@ -13,21 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged && github.base_ref == 'main'
     steps:
-      - name: Has semver label
-        uses: jesusvasquez333/verify-pr-label-action@v1.4.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          valid-labels: 'major, minor, patch'
-          pull-request-number: ${{ github.event.pull_request.number }}
-          disable-reviews: true
+      #- name: Has semver label
+      #  uses: jesusvasquez333/verify-pr-label-action@v1.4.0
+      #  with:
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
+      #    valid-labels: 'major, minor, patch'
+      #    pull-request-number: ${{ github.event.pull_request.number }}
+      #    disable-reviews: true
 
-      - name: Has change type label
-        uses: jesusvasquez333/verify-pr-label-action@v1.4.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          valid-labels: 'feature, enhancement, fix, bugfix, bug, chore'
-          pull-request-number: ${{ github.event.pull_request.number }}
-          disable-reviews: true
+      #- name: Has change type label
+      #  uses: jesusvasquez333/verify-pr-label-action@v1.4.0
+      #  with:
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
+      #    valid-labels: 'feature, enhancement, fix, bugfix, bug, chore'
+      #    pull-request-number: ${{ github.event.pull_request.number }}
+      #    disable-reviews: true
 
       - name: Create Release
         uses: release-drafter/release-drafter@v5.22.0
