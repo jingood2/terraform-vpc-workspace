@@ -158,7 +158,7 @@ jobs:
         ADD_LABEL: "dev approved"
 
   deploy_dev:
-    if: contains(github.event.pull_request.labels.*.name, 'dev approved')
+    #if: contains(github.event.pull_request.labels.*.name, 'dev approved')
     needs: [terraform-plan]
     uses: ./.github/workflows/apply-workflow.yml
     with:
