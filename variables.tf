@@ -121,6 +121,12 @@ variable "customer_gateways" {
   default     = {}
 }
 
+variable "enable_vpn_gateway" {
+  description = "Enable only single NAT Gateway in one Availability Zone to save costs during our demos"
+  type        = bool
+  default     = false
+}
+
 #IP1 = {
 #    bgp_asn     = 65112
 #    ip_address  = "1.2.3.4"

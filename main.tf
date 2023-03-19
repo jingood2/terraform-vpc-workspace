@@ -49,7 +49,7 @@ module "vpc" {
   } */
   customer_gateways = var.customer_gateways
 
-  enable_vpn_gateway = true
+  enable_vpn_gateway = var.enable_vpn_gateway
 
   enable_dhcp_options              = true
   dhcp_options_domain_name         = "service.${local.owners}.${local.environment}"
