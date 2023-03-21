@@ -1,24 +1,24 @@
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
+  source = "terraform-aws-modules/vpc/aws"
 
-  name                    = "${local.name}-${var.vpc_name}"
-  cidr                    = var.vpc_cidr_block
+  name = "${local.name}-${var.vpc_name}"
+  cidr = var.vpc_cidr_block
   #secondary_cidr_blocks   = var.secondary_cidr_blocks
-  azs                     = var.vpc_availability_zones
+  azs = var.vpc_availability_zones
 
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
 
-  public_subnets          = var.vpc_public_subnets
-  private_subnets         = var.vpc_private_subnets
-  database_subnets        = var.vpc_database_subnets
+  public_subnets   = var.vpc_public_subnets
+  private_subnets  = var.vpc_private_subnets
+  database_subnets = var.vpc_database_subnets
   #intra_subnets           = var.vpc_intra_subnets
 
   # public_subnet_names omitted to show default name generation for all three subnets
-  public_subnet_names       = var.vpc_public_subnets_names
-  private_subnet_names      = var.vpc_private_subnets_names
-  database_subnet_names     = var.vpc_database_subnets_names
+  public_subnet_names   = var.vpc_public_subnets_names
+  private_subnet_names  = var.vpc_private_subnets_names
+  database_subnet_names = var.vpc_database_subnets_names
 
-  create_database_subnet_group = var.vpc_create_database_subnet_group
+  create_database_subnet_group       = var.vpc_create_database_subnet_group
   create_database_subnet_route_table = var.vpc_create_database_subnet_route_table
 
   manage_default_network_acl = true
@@ -33,8 +33,8 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
-  enable_nat_gateway = true
-  single_nat_gateway = true
+  enable_nat_gateway = var.vpc_enable_nat_gateway
+  single_nat_gateway = var.vpc_single_nat_gateway
 
   /* customer_gateways = {
     IP1 = {

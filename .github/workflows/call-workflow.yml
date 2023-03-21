@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+
     permissions:
       actions: read
       contents: read
@@ -46,7 +46,7 @@ jobs:
           commenter_type: fmt
           commenter_input: ${{ format('{0}{1}', steps.fmt.outputs.stdout, steps.fmt.outputs.stderr) }}
           commenter_exitcode: ${{ steps.fmt.outputs.exitcode }}
-      
+
       - name: tfsec
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
@@ -97,7 +97,7 @@ jobs:
         #role-to-assume: arn:aws:iam::783857413761:role/GithubOIDCRole
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    
+
     - name: Terraform Init - ${{ matrix['path'] }}
       id: init
       #run: terraform init -input=false -backend-config="key=${{matrix.path}}"
@@ -116,7 +116,7 @@ jobs:
         commenter_type: init
         commenter_input: ${{ format('{0}{1}', steps.init.outputs.stdout, steps.init.outputs.stderr) }}
         commenter_exitcode: ${{ steps.init.outputs.exitcode }}
-    
+
 
     - name: Terraform Plan
       id: plan
@@ -147,7 +147,7 @@ jobs:
         #path: '${{ matrix.path }}.zip'
         path: 'tfplan.zip'
         retention-days: 5
-  
+
   #devLabelWhenApproved:
   #  needs: [terraform-plan]
     - name: Label dev when approved
@@ -168,7 +168,7 @@ jobs:
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  
+
   deploy_prod:
     #if: contains(github.event.pull_request.labels.*.name, 'prd approved')
     needs: [deploy_dev]

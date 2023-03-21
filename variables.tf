@@ -2,20 +2,20 @@
 # AWS Region
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
-  type = string
-  default = "us-east-1"  
+  type        = string
+  default     = "us-east-1"
 }
 # Environment Variable
 variable "environment" {
   description = "Environment Variable used as a prefix"
-  type = string
-  default = "dev"
+  type        = string
+  default     = "dev"
 }
 # Project
 variable "project" {
   description = "Project in the large organization this Infrastructure belongs"
-  type = string
-  default = "poc"
+  type        = string
+  default     = "poc"
 }
 
 #####################################################################################
@@ -33,12 +33,6 @@ variable "vpc_cidr_block" {
   description = "VPC CIDR Block"
   type        = string
   default     = "10.0.0.0/16"
-}
-
-variable "secondary_cidr_blocks" {
-  description = "VPC Secondary CIDR Block"
-  type        = list(string)
-  default     = []
 }
 
 # VPC Availability Zones
@@ -98,7 +92,7 @@ variable "vpc_create_database_subnet_group" {
 variable "vpc_create_database_subnet_route_table" {
   description = "VPC Create Database Subnet Route Table"
   type        = bool
-  default     = false 
+  default     = false
 }
 
 # VPC Enable NAT Gateway (True or False)

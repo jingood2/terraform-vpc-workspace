@@ -1,10 +1,10 @@
 # Define Local Values in Terraform
 locals {
-  owners = var.project
+  owners      = var.project
   environment = var.environment
-  name = "${var.project}-${var.environment}"
+  name        = "${var.project}-${var.environment}"
   common_tags = {
-    owners = local.owners
+    owners      = local.owners
     environment = local.environment
   }
-} 
+}
