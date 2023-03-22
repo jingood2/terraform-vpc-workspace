@@ -4,7 +4,7 @@ project     = "jingood2"
 
 vpc_name               = "vpc"
 vpc_cidr_block         = "20.0.0.0/16"
-secondary_cidr_blocks  = []
+#secondary_cidr_blocks  = []
 vpc_availability_zones = ["us-east-1a", "us-east-1c"]
 
 vpc_public_subnets         = ["20.0.0.0/24", "20.0.1.0/24"]
