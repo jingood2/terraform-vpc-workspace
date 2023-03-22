@@ -37,8 +37,8 @@ variable "vpc_cidr_block" {
 
 variable "secondary_cidr_blocks" {
   description = "VPC Secondary CIDR Block"
-  type        = string
-  default     = "10.64.0.0/16"
+  type        = list(string)
+  default     = ["10.64.0.0/16"]
   
 }
 
