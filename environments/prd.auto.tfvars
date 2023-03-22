@@ -9,8 +9,8 @@ vpc_availability_zones = ["us-east-1a", "us-east-1c"]
 
 vpc_public_subnets         = ["20.0.0.0/24", "20.0.1.0/24"]
 vpc_public_subnets_names   = ["prd-pub-1a", "prd-pub-1c"]
-vpc_private_subnets        = ["20.0.10.0/24", "20.0.11.0/24"]
-vpc_private_subnets_names  = ["prd-pri-1a", "prd-pri-1c"]
+vpc_private_subnets        = ["20.0.10.0/24", "20.0.11.0/24", "100.64.0.0/24", "100.64.1.0/24"]
+vpc_private_subnets_names  = ["prd-pri-1a", "prd-pri-1c", "prd-pod-1a", "prd-pod-1c"]
 vpc_database_subnets       = ["20.0.20.0/24", "20.0.21.0/24"]
 vpc_database_subnets_names = ["prd-db-1a", "prd-db-1c"]
 
