@@ -30,7 +30,7 @@ jobs:
       #    disable-reviews: true
 
       - name: Create Release
-        uses: release-drafter/release-drafter@v5.22.0
+        uses: release-drafter/release-drafter@v5.24.0
         if: github.base_ref == 'main'
         with:
           publish: true
