@@ -91,7 +91,7 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1-node16
+      uses: aws-actions/configure-aws-credentials@v3.0.1
       with:
         aws-region: us-east-1
         #role-to-assume: arn:aws:iam::783857413761:role/GithubOIDCRole
